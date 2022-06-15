@@ -1,0 +1,43 @@
+.login_container{
+    background-color: gainsboro;
+}
+
+.login_container, .flip-card, .flip-card-inner{
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+.flip-card {
+  background: linear-gradient(to right, black 50%, white 50%);
+  align-self: center;
+}
+
+.flip-card-inner {
+  border: 2px solid black;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card-inner, .flip-card-front, .flip-card-back{
+    width: 500px;
+    height: 600px;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: white;
+  transform: rotateY(180deg);
+}

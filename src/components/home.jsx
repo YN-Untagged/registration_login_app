@@ -1,17 +1,20 @@
 import React from 'react';
 import Navigator from './navigator';
 import Login from './login';
+import EmployeeList from './employeeList';
 
 function Home (){
 
-    if(sessionStorage.getItem('userName') === null ){
+    if(sessionStorage.getItem('user') === null ){
         return (<Login/>);
     } 
     
     return (
         <div className='container-fluid'>
             <Navigator/>
-            <h1>Welcome!</h1>
+            <div className='container-fluid'>
+                <EmployeeList />
+            </div>
         </div>
     );
 }
