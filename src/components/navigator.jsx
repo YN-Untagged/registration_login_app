@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function Navigator(){
     const navigate = useNavigate();
     const logout = (()=>{
+        ChangeUserStatus();
         sessionStorage.clear();
         navigate('/login');
     });
@@ -23,3 +24,15 @@ function Navigator(){
 }
 
 export default Navigator;
+
+function ChangeUserStatus(){
+    const userIndex = parseInt(sessionStorage.getItem('userIndex'));
+    const employees = JSON.parse(localStorage.getItem('employees'));
+
+    //Log user out and save time stamp
+    employees[userIndex].online = false;
+    employees[userIndex].lastSeen = Date.now();
+
+    localStorage.setItem('employees', JSON.stringify(employees));
+
+}

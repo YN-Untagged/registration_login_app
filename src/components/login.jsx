@@ -12,7 +12,7 @@ function Login () {
         const form = e.target;
         const validated = ValidateLogin(form.email.value, form.password.value);
         if(validated){
-            
+            alert('About to navigate');
             navigate('/');
         }
         else{

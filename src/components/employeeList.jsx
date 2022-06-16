@@ -27,7 +27,24 @@ function EmployeeList () {
                         : (
                             <div className='align-items-center'>
                                 <span className='badge bg-danger'>Offline</span><br/>
-                                <span> { moment(employee.lastSeen).format('YYYY MMMM DD, hh:mm')}</span>
+                                {
+                                    moment(employee.lastSeen).isSame(Date.now(), 'day') ?
+                                    (
+                                        <span>{ moment(employee.lastSeen).format('HH:mm')}</span>
+                                    )
+                                    : moment(employee.lastSeen).isSame(Date.now, 'week') ?
+                                    (
+                                        <span> { moment(employee.lastSeen).format('dddd, HH:mm')}</span>
+                                    )
+                                    : moment(employee.lastSeen).isSame(Date.now, 'year') ?
+                                    (
+                                        <span> { moment(employee.lastSeen).format('MMMM DD, HH:mm')}</span>
+                                    )
+                                    :(
+                                        <span> { moment(employee.lastSeen).format('YYYY MMMM DD, HH:mm')}</span>
+                                    )
+                                }
+                                
                             </div>
                         )}
                     </li>
