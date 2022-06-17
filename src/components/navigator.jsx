@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../css/navigator.css';
 
 function Navigator(){
     const navigate = useNavigate();
@@ -10,16 +11,23 @@ function Navigator(){
     });
 
     return(
-        <nav className='navbar navbar-expand-sm'>
-            <div className='container-fluid justify-content-between'>
-                <Link to='/' className='navbar-brand'>Home</Link>
-                <ul className='navbar-nav'>
-                    <li className='nav-item'>
-                        <a className='nav-link' onClick={logout}> Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <ul className='nav flex-column bg-dark vh-100 align-items-center'>
+            <li className='nav-item'>
+                <a className='nav-link'><span><Link to='/' className='navbar-brand'>Home</Link></span><i className='fa fa-bars fa-2x'></i></a>
+            </li>
+            <li className='nav-item'>
+                <a className='nav-link'><i className='fas fa-user-circle fa-2x'></i> <span>My Profile</span></a>
+            </li>
+            <li className='nav-item'>
+                <a className='nav-link'> <i className='fas fa-bell fa-2x'></i> <span>Notifications</span></a>
+            </li>
+            <li className='nav-item'>
+                <a className='nav-link'> <i className='fas fa-users fa-2x'></i> <span>Users</span></a>
+            </li>
+            <li className='nav-item'>
+                <a className='nav-link' onClick={logout}> <i className='fas fa-sign-out-alt fa-2x'></i> <span>Logout</span></a>
+            </li>
+        </ul>
     );
 }
 

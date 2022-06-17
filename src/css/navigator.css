@@ -1,0 +1,9 @@
+
+.nav-link, Link{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link span{
+    display: none;
+}

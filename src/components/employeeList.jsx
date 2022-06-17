@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import '../css/list.css';
 
 function EmployeeList () {
     const employees = JSON.parse(localStorage.getItem("employees"));
@@ -9,17 +10,24 @@ function EmployeeList () {
         <ul className='list-group'>
             { 
                 employees.map((employee)=>
-                    <li className='class="list-group-item d-flex justify-content-between align-items-center'>
-                        {employee.email === user.email ?(
-                            <a>
-                                {employee.name + ' ' + employee.surname} <span>(You)</span>
-                            </a>
-                        ) 
-                        : (
-                            <a>
-                                {employee.name + ' ' + employee.surname} <span>({employee.email})</span>
-                            </a>
-                        )}
+                    <li className='list-group-item d-flex justify-content-between align-items-center'>
+                        <div className='d-flex'>
+                            <img className='rounded-circle list_img' src={employee.src} alt='profile image'/>
+                            <div className='list_details'>
+                                {employee.email === user.email ?(
+                                    <a>
+                                        {employee.name + ' ' + employee.surname} <br/>
+                                        <span>(You)</span>
+                                    </a>
+                                ) 
+                                : (
+                                    <a>
+                                        {employee.name + ' ' + employee.surname}<br/>
+                                        <span>{employee.email}</span>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
                         
                         { employee.online ? (
                             <span className='badge bg-success'>online</span>

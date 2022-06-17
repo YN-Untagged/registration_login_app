@@ -12,7 +12,6 @@ function Login () {
         const form = e.target;
         const validated = ValidateLogin(form.email.value, form.password.value);
         if(validated){
-            alert('About to navigate');
             navigate('/');
         }
         else{
@@ -51,73 +50,75 @@ function Login () {
     });
     
     const flipToLogin = (()=>{
-        document.getElementsByClassName('flip-card-inner')[0].style.transform =  'rotateY(0deg)';
+        FlipTo('login');
     });
 
     const flipToRegister= (()=>{
-        document.getElementsByClassName('flip-card-inner')[0].style.transform =  'rotateY(180deg)';
+        FlipTo('register');
     })
 
     return (
-        <div className='container-fluid vh-100 login_container'>
-            <div className='flip-card h-80 w-80'>
+        <div className='container-fluid vh-100 d-flex justify-content-center login_container'>
+            <div className='flip-card d-flex justify-content-center'>
+                <div>
                 
-                <div className='flip-card-inner'>
-                    <div className='flip-card-front'>
-                        <form id='login-form' onSubmit={checkUser}>
-                            <h1>Login</h1>
-                            <div className='input-group mb-3'>	
-                                <span className='input-group-text'><i className='fas fa-envelope'></i></span>
-                                <input className='form-control' type='email' name='email' placeholder='Email' id='email' required />
-                            </div>
-
-                            <div className='input-group mb-3'>
-                                <span className='input-group-text'><i className='fas fa-lock'></i></span>
-                                <input className='form-control' type='password' name='password' placeholder='Password' required />
-                            </div>
-                            
-                            <button className='btn btn-dark' type='submit' id='login-btn'>Login</button>
-                        </form>
-                        
-                    </div>
-                    <div className='flip-card-back'>
-                        <form id='register-form' onSubmit={registerUser}>
-                            <h1>Register</h1>
-                            <div className='row'>
-                                <div className='input-group mb-3'>
-                                    <span className='input-group-text'><i class="fas fa-user-tie"></i></span>
-                                    <input className='form-control' type='text' name='name' placeholder='Name' required />
-                                    <input className='form-control' type='text' name='surname' placeholder='Surname' required />
+                    <div className='flip-card-inner'>
+                        <div className='flip-card-front'>
+                            <form id='login-form' onSubmit={checkUser}>
+                                <h1>Login</h1>
+                                <div className='input-group mb-3'>	
+                                    <span className='input-group-text'><i className='fas fa-envelope'></i></span>
+                                    <input className='form-control' type='email' name='email' placeholder='Email' id='email' required />
                                 </div>
-                            </div>
-                            <div className='input-group mb-3'>	
-                                <span className='input-group-text'><i className='fas fa-id-card-alt'></i></span>
-                                <input className='form-control' type='text' name='empNo' placeholder='Employee No.' required />
-                            </div>
-                            <div className='input-group mb-3'>	
-                                <span className='input-group-text'><i className='fas fa-envelope'></i></span>
-                                <input className='form-control' type='email' name='email' placeholder='Email' required />
-                            </div>
-                            <div className='input-group mb-3'>	
-                                <span className='input-group-text'><i className='fas fa-lock'></i></span>
-                                <input className='form-control' type='password' name='password' placeholder='Password' required />
-                            </div>
-                            <div className='input-group mb-3'>	
-                                <span className='input-group-text'><i className='fas fa-lock'></i></span>
-                                <input className='form-control' type='password' name='cpassword' placeholder='Confirm Password' required />
-                            </div>
-                            <div className='input-group mb-3'>
-                                <input className='form-control' type='file' name='profile' onChange={saveImage}/>
-                            </div>
 
-                            <button className='btn btn-dark' type='submit' id='reg-btn'>Register</button>
-                        </form>
-                        
+                                <div className='input-group mb-3'>
+                                    <span className='input-group-text'><i className='fas fa-lock'></i></span>
+                                    <input className='form-control' type='password' name='password' placeholder='Password' required />
+                                </div>
+                                
+                                <button className='btn btn-dark' type='submit' id='login-btn'>Login</button>
+                            </form>
+                            
+                        </div>
+                        <div className='flip-card-back'>
+                            <form id='register-form' onSubmit={registerUser}>
+                                <h1>Register</h1>
+                                <div className='row'>
+                                    <div className='input-group mb-3'>
+                                        <span className='input-group-text'><i class="fas fa-user-tie"></i></span>
+                                        <input className='form-control' type='text' name='name' placeholder='Name' required />
+                                        <input className='form-control' type='text' name='surname' placeholder='Surname' required />
+                                    </div>
+                                </div>
+                                <div className='input-group mb-3'>	
+                                    <span className='input-group-text'><i className='fas fa-id-card-alt'></i></span>
+                                    <input className='form-control' type='text' name='empNo' placeholder='Employee No.' pattern='[Emp-][0-9]{4}' required />
+                                </div>
+                                <div className='input-group mb-3'>	
+                                    <span className='input-group-text'><i className='fas fa-envelope'></i></span>
+                                    <input className='form-control' type='email' name='email' placeholder='Email' required />
+                                </div>
+                                <div className='input-group mb-3'>	
+                                    <span className='input-group-text'><i className='fas fa-lock'></i></span>
+                                    <input className='form-control' type='password' name='password' placeholder='Password' required />
+                                </div>
+                                <div className='input-group mb-3'>	
+                                    <span className='input-group-text'><i className='fas fa-lock'></i></span>
+                                    <input className='form-control' type='password' name='cpassword' placeholder='Confirm Password' required />
+                                </div>
+                                <div className='input-group mb-3'>
+                                    <input className='form-control' type='file' name='profile' onChange={saveImage}/>
+                                </div>
+
+                                <button className='btn btn-dark' type='submit' id='reg-btn'>Register</button>
+                            </form>
+                            
+                        </div>
                     </div>
-                </div>
-                <div className='d-flex justify-content-between'>
-                    <button className='btn btn-light' onClick={flipToRegister}>Register</button>
-                    <button className='btn btn-dark' onClick={flipToLogin}> Login</button>
+                    <div className='d-flex justify-content-between btn_container'>
+                        <button className='btn btn-light flip_btn' onClick={flipToRegister}>Register</button>
+                        <button className='btn btn-dark flip_btn' onClick={flipToLogin}> Login</button>
+                    </div>
                 </div>
                 
             </div>   
@@ -157,6 +158,7 @@ function RegisterUser(form){
         sessionStorage.removeItem('profile');
         form.reset();
         document.getElementById('email').value = user.email;
+        FlipTo('login');
 
         swal({
             title: 'Registered successfully',
@@ -213,4 +215,14 @@ function ValidateLogin(email, password){
     }
 
     return valid;
+}
+
+function FlipTo(page){
+    if(page === 'login'){
+        document.getElementsByClassName('flip-card-inner')[0].style.transform =  'rotateY(0deg)';
+    }
+    else{
+        document.getElementsByClassName('flip-card-inner')[0].style.transform =  'rotateY(180deg)';
+    }
+
 }

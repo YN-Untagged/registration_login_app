@@ -10,9 +10,12 @@ function Home (){
     } 
     
     return (
-        <div className='container-fluid'>
-            <Navigator/>
-            <div className='container-fluid'>
+        <div className='container-fluid page'>
+            <div className='side_nav'>
+                <Navigator/>
+            </div>
+            
+            <div className='main_container'>
                 <EmployeeList />
             </div>
         </div>
