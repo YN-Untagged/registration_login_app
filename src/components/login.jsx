@@ -66,51 +66,50 @@ function Login () {
                         <div className='flip-card-front'>
                             <form id='login-form' onSubmit={checkUser}>
                                 <h1>Login</h1>
-                                <div className='input-group mb-3'>	
+                                
+                                <div className='input-group mb-5'>	
                                     <span className='input-group-text'><i className='fas fa-envelope'></i></span>
-                                    <input className='form-control' type='email' name='email' placeholder='Email' id='email' required />
+                                    <input className='form-control form-control-lg' type='email' name='email' placeholder='Email' id='email' required />
                                 </div>
 
-                                <div className='input-group mb-3'>
+                                <div className='input-group mb-5'>
                                     <span className='input-group-text'><i className='fas fa-lock'></i></span>
-                                    <input className='form-control' type='password' name='password' placeholder='Password' required />
+                                    <input className='form-control form-control-lg' type='password' name='password' placeholder='Password' required />
                                 </div>
                                 
-                                <button className='btn btn-dark' type='submit' id='login-btn'>Login</button>
+                                <button className='btn btn-dark btn-lg' type='submit' id='login-btn'>Login</button>
                             </form>
-                            
                         </div>
                         <div className='flip-card-back'>
                             <form id='register-form' onSubmit={registerUser}>
                                 <h1>Register</h1>
-                                <div className='row'>
-                                    <div className='input-group mb-3'>
-                                        <span className='input-group-text'><i class="fas fa-user-tie"></i></span>
-                                        <input className='form-control' type='text' name='name' placeholder='Name' required />
-                                        <input className='form-control' type='text' name='surname' placeholder='Surname' required />
-                                    </div>
+                                <div className='input-group mb-5'>
+                                    <span className='input-group-text'><i className='fas fa-user-tie'></i></span>
+                                    <input className='form-control' type='text' name='name' placeholder='Name' required /> <span>&emsp;&emsp;</span>
+                                    <input className='form-control' type='text' name='surname' placeholder='Surname' required />
                                 </div>
-                                <div className='input-group mb-3'>	
+                                <div className='input-group mb-5'>	
                                     <span className='input-group-text'><i className='fas fa-id-card-alt'></i></span>
-                                    <input className='form-control' type='text' name='empNo' placeholder='Employee No.' pattern='[Emp-][0-9]{4}' required />
+                                    <input className='form-control' type='text' name='empNo' placeholder='Employee No.' pattern='[A-Z]{3}[-][0-9]{4}' required />
                                 </div>
-                                <div className='input-group mb-3'>	
+                                <small className='format_text'>Format: EMP-0000</small>
+                                <div className='input-group mb-5'>	
                                     <span className='input-group-text'><i className='fas fa-envelope'></i></span>
                                     <input className='form-control' type='email' name='email' placeholder='Email' required />
                                 </div>
-                                <div className='input-group mb-3'>	
+                                <div className='input-group mb-5'>	
                                     <span className='input-group-text'><i className='fas fa-lock'></i></span>
                                     <input className='form-control' type='password' name='password' placeholder='Password' required />
                                 </div>
-                                <div className='input-group mb-3'>	
+                                <div className='input-group mb-5'>	
                                     <span className='input-group-text'><i className='fas fa-lock'></i></span>
                                     <input className='form-control' type='password' name='cpassword' placeholder='Confirm Password' required />
                                 </div>
-                                <div className='input-group mb-3'>
+                                <div className='input-group mb-5'>
                                     <input className='form-control' type='file' name='profile' onChange={saveImage}/>
                                 </div>
 
-                                <button className='btn btn-dark' type='submit' id='reg-btn'>Register</button>
+                                <button className='btn btn-dark btn-lg' type='submit' id='reg-btn'>Register</button>
                             </form>
                             
                         </div>

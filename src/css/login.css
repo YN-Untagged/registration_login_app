@@ -1,3 +1,11 @@
+h1{
+  padding-bottom: 25px;
+}
+
+form{
+  padding: 20px 20px;
+}
+
 .login_container{
     background-color: gainsboro;
 }
@@ -12,38 +20,39 @@
   background: linear-gradient(to right, black 50%, white 50%);
   text-align: center;
   width: 90%;
-  height: 90%;
+  height: 100%;
 }
 
 .flip-card-inner {
   border: 3px solid black;
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: white;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  width: 550px;
-  height: 650px;
-  align-items: center;
-  padding: 10px
+  transform: translateZ(1px);
+  width: 580px;
+  height: 750px;
+  text-align: center;
+  padding: 10px;
+  position: relative;
 }
 
 .flip-card-front, .flip-card-back{
-  width: 500px;
-  height: 600px;
+  width: 550px;
+  height: 720px;
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: white;
-  color: black;
 }
 
 .flip-card-back {
-  transform: rotateY(180deg);
+  transform: translateZ(-1px) rotateY(180deg);
 }
 
 .btn_container{
-  width: calc(200%);
-  left: -50%;
+  width: calc(180%);
+  left: -40%;
+  top: -100px;
   position: relative;
 }
 
@@ -55,4 +64,21 @@
 
 .flip_btn:hover, .flip-card:focus{
   background-color: gray;
+}
+
+.input-group-text, .input-group input{
+  background-color: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.input-group input{
+  padding: 10px 20px;
+}
+
+.format_text{
+  top: -50px;
+  position: relative;
 }
