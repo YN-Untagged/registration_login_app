@@ -29,7 +29,7 @@ form{
   background-color: white;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  transform: translateZ(1px);
+
   width: 580px;
   height: 750px;
   text-align: center;
@@ -43,6 +43,7 @@ form{
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform: translateZ(1px);
 }
 
 .flip-card-back {
@@ -53,6 +54,7 @@ form{
   width: calc(180%);
   left: -40%;
   top: -100px;
+  
   position: relative;
 }
 

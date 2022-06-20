@@ -12,19 +12,19 @@ function EmployeeList () {
                 employees.map((employee)=>
                     <li className='list-group-item d-flex justify-content-between align-items-center'>
                         <div className='d-flex'>
-                            <img className='rounded-circle list_img' src={employee.src} alt='profile image'/>
+                            <img className='rounded-circle list_img' src={employee.src} alt='profile'/>
                             <div className='list_details'>
                                 {employee.email === user.email ?(
-                                    <a>
+                                    <div>
                                         {employee.name + ' ' + employee.surname} <br/>
                                         <span>(You)</span>
-                                    </a>
+                                    </div>
                                 ) 
                                 : (
-                                    <a>
+                                    <div>
                                         {employee.name + ' ' + employee.surname}<br/>
                                         <span>{employee.email}</span>
-                                    </a>
+                                    </div>
                                 )}
                             </div>
                         </div>

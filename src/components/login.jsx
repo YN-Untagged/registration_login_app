@@ -1,10 +1,9 @@
 import React from 'react';
 import swal from 'sweetalert';
-import {useNavigate} from "react-router-dom";
 import '../css/login.css';
+import bcrypt from 'bcryptjs/dist/bcrypt';
 
 function Login () {
-    const navigate = useNavigate();
 
     const checkUser=((e)=>{
         e.preventDefault();
@@ -12,7 +11,7 @@ function Login () {
         const form = e.target;
         const validated = ValidateLogin(form.email.value, form.password.value);
         if(validated){
-            navigate('/');
+            window.location.href ='/';
         }
         else{
             swal({
@@ -136,6 +135,8 @@ function RegisterUser(form){
         let src = 'images/profile.jpg'; 
         const employees = JSON.parse(localStorage.getItem('employees')),
         date = new Date();
+        let salt = bcrypt.genSaltSync(10);
+        let hash = bcrypt.hashSync(form.password.value, salt);
 
         if(sessionStorage.getItem('profile') !== null ){
             src = sessionStorage.getItem('profile');
@@ -146,7 +147,7 @@ function RegisterUser(form){
             surname: form.surname.value,
             empNo: form.empNo.value,
             email: form.email.value,
-            password: form.password.value,
+            password: hash,
             src: src,
             lastSeen: date
         }
@@ -201,7 +202,7 @@ function ValidateLogin(email, password){
     //if user is found
     if(user !== null){
         //check if input password matches stored password
-        if(user.password === password ){
+        if(bcrypt.compareSync(password, user.password)){/*user.password === password ){*/
             valid = true;
 
             //change user states
@@ -215,6 +216,8 @@ function ValidateLogin(email, password){
 
     return valid;
 }
+
+
 
 function FlipTo(page){
     if(page === 'login'){
